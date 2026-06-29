@@ -4,7 +4,7 @@
 
 | Item | Value |
 | --- | --- |
-| Conda env | `microlm-audio` |
+| Conda env | `microlm` |
 | Python | `3.11.15` |
 | PyTorch | `2.5.1+cu121` |
 | TorchVision | `0.20.1+cu121` |
@@ -22,6 +22,7 @@
 | Upstream repository | `https://github.com/jiaran-king/MicroLM.git` |
 | Upstream commit | `782ae02` |
 | Local path | `external/MicroLM` |
+| Environment clone command | `conda create --name microlm --clone microlm-audio -y` |
 | Install command | `python -m pip install -e "external/MicroLM[all]"` |
 
 ## Checks
@@ -56,4 +57,4 @@ Iter 19: train_loss 5.3352, val_loss 6.4113, lr 7.32e-05
 
 ## Notes
 
-No OOM occurred. The upstream `pyproject.toml` requires Python `>=3.11`, so the existing `microlm-audio` environment was upgraded from Python `3.10` to Python `3.11.15` instead of creating a second environment.
+No OOM occurred. The upstream `pyproject.toml` requires Python `>=3.11`. The existing `microlm-audio` environment was upgraded to Python `3.11.15`, then cloned to a dedicated `microlm` environment for the full upstream MicroLM reproduction workflow. Future upstream reproduction steps should use `conda activate microlm`; the later audio classification work can return to `conda activate microlm-audio`.
