@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Local IDE/editor files
+.idea/
+.vscode/
+
+# Large or generated data
+data/raw/**
+!data/raw/.gitkeep
+!data/raw/gtzan/
+!data/raw/gtzan/.gitkeep
+
+data/processed/**
+!data/processed/.gitkeep
+!data/processed/gtzan_mel/
+!data/processed/gtzan_mel/.gitkeep
+
+# Generated experiment artifacts
+outputs/**
+!outputs/.gitkeep
+!outputs/microlm_reproduce/
+!outputs/microlm_reproduce/.gitkeep
+!outputs/gtzan_classifier/
+!outputs/gtzan_classifier/.gitkeep
+
+# External upstream clone; keep only the placeholder.
+external/MicroLM/**
+!external/MicroLM/.gitkeep
+
+# Model checkpoints and arrays
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz

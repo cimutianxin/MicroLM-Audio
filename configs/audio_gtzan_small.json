@@ -1,0 +1,24 @@
+{
+  "dataset": "gtzan",
+  "metadata_csv": "data/processed/gtzan_mel/metadata.csv",
+  "output_dir": "outputs/gtzan_classifier",
+
+  "sample_rate": 22050,
+  "clip_length": 3,
+  "n_fft": 1024,
+  "hop_length": 512,
+  "n_mels": 128,
+
+  "num_classes": 10,
+  "d_model": 256,
+  "num_layers": 4,
+  "num_heads": 4,
+  "d_ff": 1024,
+  "dropout": 0.1,
+
+  "batch_size": 32,
+  "epochs": 50,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.01,
+  "seed": 42
+}
