@@ -32,6 +32,7 @@ outputs/**
 !outputs/.gitkeep
 !outputs/microlm_reproduce/
 !outputs/microlm_reproduce/.gitkeep
+!outputs/microlm_reproduce/reproduce_summary.md
 !outputs/gtzan_classifier/
 !outputs/gtzan_classifier/.gitkeep
 
