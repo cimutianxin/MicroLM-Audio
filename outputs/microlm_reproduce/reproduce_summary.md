@@ -33,6 +33,9 @@
 | Transformer import check | Passed | `TransformerLM` instantiated successfully |
 | Test suite | Passed | `32 passed, 1 warning` |
 | Pretrain smoke | Passed | `configs/pretrain_smoke.json` |
+| A0 MiniMind download | Passed | Downloaded pretrain and SFT jsonl files |
+| A1 pretrain cleaning | Passed | `total_kept=1264051`, `filter_rate=0.49%` |
+| A2 tokenizer sample | Passed | Created 15 MiB tokenizer sample |
 
 ## Pretrain Smoke Result
 
@@ -51,9 +54,50 @@ Iter 19: train_loss 5.3352, val_loss 6.4113, lr 7.32e-05
 | --- | --- |
 | `outputs/microlm_reproduce/pytest.log` | Full pytest output |
 | `outputs/microlm_reproduce/pretrain_smoke.log` | Pretrain smoke log |
+| `outputs/microlm_reproduce/minimind_download.log` | MiniMind download log |
+| `outputs/microlm_reproduce/prepare_pretrain_clean.log` | Pretrain cleaning log |
+| `outputs/microlm_reproduce/tokenizer_sample.log` | Tokenizer sample creation log |
 | `outputs/microlm_reproduce/checkpoints/pretrain_smoke_ckpt_final.pt` | Final smoke checkpoint |
 | `outputs/microlm_reproduce/checkpoints/pretrain_smoke_model_config.json` | Model config from smoke run |
 | `outputs/microlm_reproduce/checkpoints/pretrain_smoke_resolved_train_config.json` | Resolved train config from smoke run |
+
+## Full MicroLM Reproduction Progress
+
+### A0: MiniMind Data Download
+
+| File | Size |
+| --- | ---: |
+| `external/MicroLM/data/pretrain_t2t_mini.jsonl` | `1241043656` bytes |
+| `external/MicroLM/data/minimind_sft/gongjy/minimind_dataset/sft_t2t_mini.jsonl` | `1739201170` bytes |
+
+### A1: Pretrain Corpus Cleaning
+
+| Metric | Value |
+| --- | ---: |
+| Raw documents | `1270238` |
+| Kept documents | `1264051` |
+| Empty skipped | `6` |
+| Short skipped | `5926` |
+| Duplicates removed | `255` |
+| Filter rate | `0.49%` |
+| Train documents | `1251547` |
+| Valid documents | `12504` |
+
+Generated files:
+
+```text
+external/MicroLM/data/pretrain_clean/train.txt
+external/MicroLM/data/pretrain_clean/valid.txt
+external/MicroLM/data/pretrain_clean/tokenizer_corpus.txt
+external/MicroLM/data/pretrain_clean/metadata.json
+```
+
+### A2: Tokenizer Training Sample
+
+| File | Size |
+| --- | ---: |
+| `external/MicroLM/data/pretrain_clean/tokenizer_corpus.txt` | `1219223653` bytes |
+| `external/MicroLM/data/pretrain_clean/tokenizer_sample.txt` | `15728640` bytes |
 
 ## Notes
 
